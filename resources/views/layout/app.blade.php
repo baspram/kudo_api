@@ -85,7 +85,7 @@
                 <div class="row">
                     <div class="footer-col col-md-12">
                         <h3>About This App</h3>
-                        <p> Kudo Codefest, DWB Team, Movie Recommendation System </p>
+                        <p> Kudo Codefest, DWB Team, Movie Recommendation System using Collaborative-Filtering Approach</p>
                 </div>
             </div>
         </div>

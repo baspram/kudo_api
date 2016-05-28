@@ -6,14 +6,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>User Dashboard</h2>
+                    <h2>{{$name}}</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-4">
-                    <h1> Hi, {{$name}} </h1>
-                    <h4> Age: {{$profile->age}} years old</h4>
+                <div class="col-lg-6 col-lg-offset-4">
+                    <h4> Age Category:
+                    @if($profile->age == 1)
+                        Under 18
+                    @elseif ($profile->age == 18)
+                        18-24
+                    @elseif ($profile->age == 25)
+                        25-34
+                    @elseif ($profile->age == 35)
+                        35-44  
+                    @elseif ($profile->age == 45)
+                        45-49
+                    @elseif ($profile->age == 50)
+                        50-55
+                    @elseif ($profile->age == 56)
+                        56+ 
+                    @endif
+
+                     years old</h4>
                     <h4> Gender: 
                     @if ($profile->gender == 'M')
                         Male 
@@ -21,7 +37,51 @@
                         Female
                     @endif
                     </h4>
-                    <h4> Occupation: {{$profile->occupation}}</h4>
+                    <h4> Occupation:
+                    @if($profile->occupation == 1)
+                        Academic/Educator
+                    @elseif ($profile->occupation == 2)
+                        Artist
+                    @elseif ($profile->occupation == 3)
+                        Clerical/Admin
+                    @elseif ($profile->occupation == 4)
+                        College/Grad Student
+                    @elseif ($profile->occupation  == 5)
+                        Costumer Service
+                    @elseif ($profile->occupation == 6)
+                        Doctor/Health Service
+                    @elseif ($profile->occupation == 7)
+                        Executive/Managerial
+                    @elseif ($profile->occupation == 8)
+                        Farmer
+                    @elseif ($profile->occupation == 9)
+                        Homemaker
+                    @elseif ($profile->occupation == 10)
+                        Student
+                    @elseif ($profile->occupation == 11)
+                        Lawyer
+                    @elseif ($profile->occupation == 12)
+                        Programmer
+                    @elseif ($profile->occupation == 13)
+                        Retired
+                    @elseif ($profile->occupation == 14)
+                        Sales/Marketing
+                    @elseif ($profile->occupation == 15)
+                        Scientist                        
+                    @elseif ($profile->occupation == 16)
+                        Self-employed
+                    @elseif ($profile->occupation == 17)
+                        Technician/Engineer
+                    @elseif ($profile->occupation == 18)
+                        Tradesman/Craftsman
+                    @elseif ($profile->occupation == 19)
+                        Unemployed
+                    @elseif ($profile->occupation == 20)
+                        Writer
+                    @elseif ($profile->occupation == 0)
+                        "Other" or not specified
+                    @endif
+                    </h4>
                 </div>
             </div>
             <hr>
