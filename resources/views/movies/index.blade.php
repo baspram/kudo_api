@@ -10,10 +10,15 @@
                         <span class="name">Rate Your Movie</span>
                         <hr class="star-light">
                         <span class="skills">Search Your Movie</span><br>
-                        <input type="text" class="form-control"><br>
+                        
+                        {!! Form::open(['url' => 'movies/search']) !!}
+                            <input id="search_title" name="search_title" type="text" class="form-control"><br>
+                             <button type="submit" class="btn btn-success btn-lg" style="display:hidden;"> Search</button>
+                        {!! Form::close() !!}
+
                         <span class="skills">or</span><br>
                         <div class="col-lg-8 col-lg-offset-2 text-center page-scroll">
-                            <a href="movies.html" class="btn btn-lg btn-outline">
+                            <a href="{{ url('/movies') }}" class="btn btn-lg btn-outline">
                                 <!-- <i class="fa fa-download"> --></i> See All Movies
                             </a>
                             <a href="#top-movies" class="btn btn-lg btn-outline">

@@ -36,7 +36,30 @@ class UserController extends Controller
     		array_push($movies, $movie);
     	}
     	
-    	return view('users.show', compact(['profile', 'name', 'movies']));
+    	$movies_recommendation = UserController::recommendation();
+    	return view('users.show', compact(['profile', 'name', 'movies', 'movies_recommendation']));
+    }
+
+     public function recommendation() {
+        $logged_id = Auth::User()->user_id;
+        $myfile = fopen("D:\Kudofest - Python API\input.txt", "w") or die("Unable to open file!");
+        fwrite($myfile, $logged_id);
+        fclose($myfile);
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, 
+            'http://127.0.0.1:20000/r'
+        );
+        $json = curl_exec($ch);
+        $retval = json_decode($json, TRUE);
+
+        $movies_rec = [];
+        foreach($retval as $key=>$val) { 
+      		array_push($movies_rec, (Movies::where('id_movie', '=', (int)$val)->get()));
+				}
+
+        return $movies_rec;
     }
 
     public function create(){

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>MovieLens Recommendation</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="{{URL::asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">Start Bootstrap</a>
+                <a class="navbar-brand" href="{{ url('/') }}">MovieLens</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,7 +67,7 @@
                             <a href="{{ url('/user') }}">My Profile</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#">Logout</a>
+                            <a href="{{ url('/logout') }}">Logout</a>
                         </li>
                     @endif
                 </ul>
@@ -85,8 +85,7 @@
                 <div class="row">
                     <div class="footer-col col-md-12">
                         <h3>About This App</h3>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero tempora at blanditiis eaque quaerat asperiores tempore labore fugit maiores quod doloremque, ipsa, distinctio natus porro! Laboriosam blanditiis, ab illo!
-                    </div>
+                        <p> Kudo Codefest, DWB Team, Movie Recommendation System </p>
                 </div>
             </div>
         </div>
@@ -94,7 +93,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2014
+                        Copyright &copy; DWB 2016
                     </div>
                 </div>
             </div>

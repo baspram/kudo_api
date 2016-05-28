@@ -13,23 +13,23 @@
                 <div class="col-lg-10 col-lg-offset-1">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
+                    <div class="row control-group">
+                        {!! Form::open(['url' => 'movies/search']) !!}
                             <div class="form-group col-xs-8  col-xs-offset-1 floating-label-form-group controls">
                                 <label>Search Your Movie</label>
-                                <input type="text" class="form-control" placeholder="Search Your Movie" id="movie" required data-validation-required-message="Please enter your username.">
-                                <p class="help-block text-danger"></p>
+                                    <input name="search_title" id="search_title" type="text" class="form-control" placeholder="Search Your Movie" required data-validation-required-message="Please enter your username.">
+                                    <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group col-xs-2 search-buttons">
                                 <button type="submit" class="btn btn-success btn-lg">Search</button>
                             </div>
-                        </div>
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            
-                        </div>
-                    </form>
+                         {!! Form::close() !!}
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        
+                    </div>
                 </div>
             </div>
             <br>

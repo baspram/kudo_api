@@ -13,9 +13,9 @@
 Route::auth();
 
 Route::get('/', 'MoviesController@index');
-
 Route::get('movies', 'MoviesController@lists');
 Route::post('movies', 'MoviesController@store');
+Route::post('movies/search', 'MoviesController@search');
 Route::get('movies/{id}', 'MoviesController@show');
 
 Route::get('user', 'UserController@index');
