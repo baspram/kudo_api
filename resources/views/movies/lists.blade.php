@@ -47,7 +47,7 @@
                             <h1>{{number_format((integer)$movies->average_rating)}}/5</h1>                            
                         </div>
                         <div class="right-item">
-                            <h1>{{$movies->title}} <span>({{$movies->year}})</span></h1>
+                            <h1>{{ str_limit($movies->title, $limit = 35, $end = '...')}} <span>({{$movies->year}})</span></h1>
                             <h3>Genre: <span>
                                 @if ($movies->action == 1)
                                     action 

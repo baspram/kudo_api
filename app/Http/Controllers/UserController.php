@@ -40,6 +40,16 @@ class UserController extends Controller
     	return view('users.show', compact(['profile', 'name', 'movies', 'movies_recommendation']));
     }
 
+    public function updateModel() {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, 
+            'http://127.0.0.1:20000/u'
+        );
+        curl_setopt($ch, CURLOPT_TIMEOUT,120);
+        $json = curl_exec($ch);
+    }
+
      public function recommendation() {
         $logged_id = Auth::User()->user_id;
         $myfile = fopen("D:\Kudofest - Python API\input.txt", "w") or die("Unable to open file!");
@@ -51,6 +61,7 @@ class UserController extends Controller
         curl_setopt($ch, CURLOPT_URL, 
             'http://127.0.0.1:20000/r'
         );
+        curl_setopt($ch, CURLOPT_TIMEOUT,120);
         $json = curl_exec($ch);
         $retval = json_decode($json, TRUE);
 
@@ -65,10 +76,6 @@ class UserController extends Controller
     public function create(){
     	$user = Auth::user()->user_id;
     	$profile = Users_profiles::where('id_user', '=', $user);
-
-    	if($profile != NULL){
-    		return redirect('/');
-    	}
     	return view('users.create');
     }
 
@@ -104,7 +111,7 @@ class UserController extends Controller
     		'war' => 0,
     		'western' => 0,
     	]);
-    	
+    	UserController::updateModel();
     	return redirect('/');
     }
 }

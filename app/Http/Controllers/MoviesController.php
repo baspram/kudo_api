@@ -32,7 +32,7 @@ class MoviesController extends Controller
     public function index(){
 
     	// $top_movies = Movies::orderBy('average_rating', 'desc')->take(10)->get();
-        $top_movies = Movies::where('average_rating', '=',  5)->get()->random(10);// 
+        $top_movies = Movies::where('average_rating', '>',  4.4)->orderBy('rater_count', 'desc')->take(10)->get();// 
         $children_movies = Movies::where('childrens', '=', 1)->orderBy('rater_count', 'desc')->take(5)->get();
         $animation_movies = Movies::where('animation', '=', 1)->orderBy('rater_count', 'desc')->take(5)->get();
         
@@ -265,28 +265,16 @@ class MoviesController extends Controller
             'rating' => $input['rate'],
         ]);
 
+        MoviesController::updateModel();
         return redirect('user');            
     }
 
-    public function recommendation() {
-        $logged_id = Auth::User()->user_id;
-        $myfile = fopen("D:\Kudofest - Python API\input.txt", "w") or die("Unable to open file!");
-        fwrite($myfile, $logged_id);
-        fclose($myfile);
-        
+    public function updateModel() {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL, 
-            'http://127.0.0.1:20000/r'
+            'http://127.0.0.1:20000/u'
         );
         $json = curl_exec($ch);
-        $retval = json_decode($json, TRUE);
-
-        $movies_rec = [];
-        foreach($retval as $key=>$val) { 
-            array_push($movies_rec, (Movies::where('id_movie', '=', (int)$val)->get()));
-                }
-
-        return $movies_rec;
     }
 }

@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="{{URL::asset('assets/img/popcorn.png')}}" alt="">
+                    <img class="img-responsive" src="{{URL::asset('assets/img/movie.png')}}" alt="">
                     <div class="intro-text">
                         <span class="name">Rate Your Movie</span>
                         <hr class="star-light">
@@ -13,7 +13,7 @@
                         
                         {!! Form::open(['url' => 'movies/search']) !!}
                             <input id="search_title" name="search_title" type="text" class="form-control"><br>
-                             <button type="submit" class="btn btn-success btn-lg" style="display:hidden;"> Search</button>
+                             <button type="submit" class="btn btn-success btn-lg" style="display:none;"> Search</button>
                         {!! Form::close() !!}
 
                         <span class="skills">or</span><br>
@@ -56,7 +56,7 @@
                                     <h1>{{number_format((integer)$movies->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies->title}} <span>({{$movies->year}})</span></h1>
+                                    <h1>{{ str_limit($movies->title, $limit = 35, $end = '...')}} <span>({{$movies->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies->action == 1)
                                             action 
@@ -146,7 +146,7 @@
                                     <h1>{{number_format((integer)$movies->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies->title}} <span>({{$movies->year}})</span></h1>
+                                    <h1>{{ str_limit($movies->title, $limit = 35, $end = '...')}} <span>({{$movies->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies->action == 1)
                                             action 
@@ -218,7 +218,7 @@
                                     <h1>{{number_format((integer)$movies->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies->title}} <span>({{$movies->year}})</span></h1>
+                                    <h1>{{ str_limit($movies->title, $limit = 35, $end = '...')}} <span>({{$movies->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies->action == 1)
                                             action 
@@ -293,7 +293,7 @@
                                     <h1>{{number_format((integer)$movies[0]->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies[0]->title}} <span>({{$movies[0]->year}})</span></h1>
+                                    <h1>{{ str_limit($movies[0]->title, $limit = 35, $end = '...')}} <span>({{$movies[0]->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies[0]->action == 1)
                                             action 
@@ -368,7 +368,7 @@
                                     <h1>{{number_format((integer)$movies[0]->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies[0]->title}} <span>({{$movies[0]->year}})</span></h1>
+                                    <h1>{{ str_limit($movies[0]->title, $limit = 35, $end = '...')}} <span>({{$movies[0]->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies[0]->action == 1)
                                             action 
@@ -443,7 +443,7 @@
                                     <h1>{{number_format((integer)$movies[0]->average_rating)}}/5</h1>                            
                                 </div>
                                 <div class="right-item">
-                                    <h1>{{$movies[0]->title}} <span>({{$movies[0]->year}})</span></h1>
+                                    <h1>{{ str_limit($movies[0]->title, $limit = 35, $end = '...')}} <span>({{$movies[0]->year}})</span></h1>
                                     <h3>Genre: <span>
                                         @if ($movies[0]->action == 1)
                                             action 

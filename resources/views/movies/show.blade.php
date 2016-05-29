@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>{{$movie[0]->title}}</h2>
+                    <h2>{{ str_limit($movie[0]->title, $limit = 35, $end = '...')}}</h2>
                     <hr class="star-primary">
                 </div>
             </div>
